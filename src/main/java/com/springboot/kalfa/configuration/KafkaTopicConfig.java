@@ -1,0 +1,29 @@
+package com.springboot.kalfa.configuration;
+
+import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.config.TopicBuilder;
+
+@Configuration
+public class KafkaTopicConfig {
+
+    public static final String ORDER_TOPIC = "order-topic";
+    public static final String ORDER_DLT = "order-topic-dlt";
+
+    @Bean
+    public NewTopic orderTopic() {
+        return TopicBuilder.name(ORDER_TOPIC)
+                .partitions(3)
+                .replicas(1)
+                .build();
+    }
+
+    @Bean
+    public NewTopic orderDltTopic() {
+        return TopicBuilder.name(ORDER_DLT)
+                .partitions(3)
+                .replicas(1)
+                .build();
+    }
+}
