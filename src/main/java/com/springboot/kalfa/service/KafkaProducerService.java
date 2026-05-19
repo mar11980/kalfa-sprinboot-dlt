@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+@SuppressWarnings("NullableProblems")
 public class KafkaProducerService {
 
     private final KafkaTemplate<String, OrderEvent> kafkaTemplate;

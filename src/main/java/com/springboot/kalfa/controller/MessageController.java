@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/orders")
 @RequiredArgsConstructor
+@SuppressWarnings("NullableProblems")
 public class MessageController {
 
     private final KafkaProducerService producerService;

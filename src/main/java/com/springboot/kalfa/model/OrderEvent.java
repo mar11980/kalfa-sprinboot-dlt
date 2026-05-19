@@ -14,13 +14,4 @@ public class OrderEvent {
     private Integer quantity;
     private String email;
 
- /*   @Override
-    public String toString() {
-        return "{\n" +
-                "  \"orderId\":\"" + orderId + "\",\n" +
-                "  \"product\":\"" + product + "\",\n" +
-                "  \"quantity\":" + quantity + ",\n" +
-                "  \"email\":\"" + email + "\"\n" +
-                "}";
-    }*/
 }

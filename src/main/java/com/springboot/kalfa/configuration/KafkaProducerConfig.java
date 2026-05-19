@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@SuppressWarnings("NullableProblems")
 public class KafkaProducerConfig {
 
     @Bean
