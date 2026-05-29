@@ -1,8 +1,8 @@
-package com.springboot.kalfa.controller;
+package com.springboot.kafka.controller;
 
 
-import com.springboot.kalfa.model.OrderEvent;
-import com.springboot.kalfa.service.KafkaProducerService;
+import com.springboot.kafka.model.OrderEvent;
+import com.springboot.kafka.service.KafkaProducerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

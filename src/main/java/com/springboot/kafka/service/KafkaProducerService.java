@@ -1,8 +1,7 @@
-package com.springboot.kalfa.service;
+package com.springboot.kafka.service;
 
-
-import com.springboot.kalfa.configuration.KafkaTopicConfig;
-import com.springboot.kalfa.model.OrderEvent;
+import com.springboot.kafka.configuration.KafkaTopicConfig;
+import com.springboot.kafka.model.OrderEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -20,6 +19,6 @@ public class KafkaProducerService {
 
         log.info("Sending event: {}", event);
 
-        kafkaTemplate.send(KafkaTopicConfig.ORDER_TOPIC, event.getOrderId(), event);
+        kafkaTemplate.send(KafkaTopicConfig.ORDER_TOPIC, event.getOrderId().toString(), event);
     }
 }

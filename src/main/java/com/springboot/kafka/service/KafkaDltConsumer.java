@@ -1,10 +1,9 @@
-package com.springboot.kalfa.service;
+package com.springboot.kafka.service;
 
-import com.springboot.kalfa.model.OrderEvent;
+import com.springboot.kafka.model.OrderEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import tools.jackson.databind.ObjectMapper;
 
 @Slf4j
 @Service

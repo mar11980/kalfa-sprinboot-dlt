@@ -1,6 +1,6 @@
-package com.springboot.kalfa.configuration;
+package com.springboot.kafka.configuration;
 
-import com.springboot.kalfa.model.OrderEvent;
+import com.springboot.kafka.model.OrderEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
@@ -56,7 +56,7 @@ public class KafkaConsumerConfig {
 
         config.put(
                 JacksonJsonDeserializer.VALUE_DEFAULT_TYPE,
-                "com.springboot.kalfa.model.OrderEvent"
+                "com.springboot.kafka.model.OrderEvent"
         );
 
         return new DefaultKafkaConsumerFactory<>(

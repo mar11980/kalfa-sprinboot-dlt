@@ -1,6 +1,6 @@
-package com.springboot.kalfa.configuration;
+package com.springboot.kafka.configuration;
 
-import com.springboot.kalfa.model.OrderEvent;
+import com.springboot.kafka.model.OrderEvent;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;

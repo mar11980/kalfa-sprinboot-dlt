@@ -1,4 +1,4 @@
-package com.springboot.kalfa.configuration;
+package com.springboot.kafka.configuration;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;

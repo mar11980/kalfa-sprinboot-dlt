@@ -1,6 +1,6 @@
-package com.springboot.kalfa.service;
+package com.springboot.kafka.service;
 
-import com.springboot.kalfa.model.OrderEvent;
+import com.springboot.kafka.model.OrderEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.BackOff;
 import org.springframework.kafka.annotation.DltHandler;
@@ -14,6 +14,12 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class KafkaConsumerService {
+
+    private final OrderEventService orderEventService;
+
+    public KafkaConsumerService(OrderEventService orderEventService) {
+        this.orderEventService = orderEventService;
+    }
 
     @RetryableTopic(
             attempts = "3",
@@ -40,6 +46,8 @@ public class KafkaConsumerService {
         if (!validEmail) {
             throw new RuntimeException("Invalid email format");
         }
+        event.setOrderId(null);
+        orderEventService.save(event);
 
         log.info("Order : {} processed successfully", event);
     }

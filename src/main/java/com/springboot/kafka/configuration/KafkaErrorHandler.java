@@ -1,4 +1,4 @@
-package com.springboot.kalfa.configuration;
+package com.springboot.kafka.configuration;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
