@@ -17,7 +17,7 @@ public class KafkaDltConsumer {
     public void consumeDlt(OrderEvent event) {
 
 
-        log.error("🚨 Message RECEIVED EVENT in DLT: {}", event);
+        log.error("🚨 Message RECEIVED in DLT EVENT: {}", event);
 
         // Save into DB
         // Send alert

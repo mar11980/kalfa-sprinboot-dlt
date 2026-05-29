@@ -35,7 +35,7 @@ public class KafkaConsumerService {
         String email = event.getEmail();
 
         boolean validEmail = email != null
-                && email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+                && email.matches("^[A-Za-z0-9+_.-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$");
 
         if (!validEmail) {
             throw new RuntimeException("Invalid email format");
