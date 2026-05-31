@@ -12,9 +12,9 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Kalfa Docker API")
+                        .title("Kafka Docker API")
                         .version("1.0.0")
-                        .description("API documentation for kalfa project"));
+                        .description("API documentation for kafka project"));
     }
 }
 
