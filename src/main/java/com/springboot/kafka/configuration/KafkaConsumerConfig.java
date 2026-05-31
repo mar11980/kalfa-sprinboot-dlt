@@ -3,6 +3,7 @@ package com.springboot.kafka.configuration;
 import com.springboot.kafka.model.OrderEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -19,6 +20,14 @@ import java.util.Map;
 @SuppressWarnings("NullableProblems")
 public class KafkaConsumerConfig {
 
+    private final String bootstrapServers;
+
+    public KafkaConsumerConfig(
+            @Value("${spring.kafka.bootstrap-servers}") String bootstrapServers
+    ) {
+        this.bootstrapServers = bootstrapServers;
+    }
+
     @Bean
     public ConsumerFactory<String, OrderEvent> consumerFactory() {
 
@@ -26,7 +35,7 @@ public class KafkaConsumerConfig {
 
         config.put(
                 ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "localhost:9092"
+                bootstrapServers
         );
 
         config.put(

@@ -3,7 +3,7 @@ volumes:
 
 spring:
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -22,19 +22,19 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
 
-  datasource:
-    url: jdbc:postgresql://localhost:5432/vaudoise
-    username: postgres
-    password: lambda
-    driver-class-name: org.postgresql.Driver
-
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: update
-
-    show-sql: true
-
-    properties:
-      hibernate:
-        format_sql: true
+#  datasource:
+#    url: jdbc:postgresql://host.docker.internal:5432/vaudoise
+#    username: postgres
+#    password: lambda
+#    driver-class-name: org.postgresql.Driver
+#
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: update
+#
+#    show-sql: true
+#
+#    properties:
+#      hibernate:
+#        format_sql: true

@@ -11,7 +11,7 @@ public class OrderEventService {
 
     private final OrderEventRepository orderEventRepository;
 
-    public OrderEvent save(OrderEvent orderEvent){
-        return orderEventRepository.save(orderEvent);
+    public void save(OrderEvent orderEvent){
+        orderEventRepository.save(orderEvent);
     }
 }

@@ -1,6 +1,7 @@
 package com.springboot.kafka.service;
 
 import com.springboot.kafka.model.OrderEvent;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.BackOff;
 import org.springframework.kafka.annotation.DltHandler;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
+@Transactional
 public class KafkaConsumerService {
 
     private final OrderEventService orderEventService;
