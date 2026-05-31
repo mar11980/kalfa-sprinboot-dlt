@@ -85,6 +85,17 @@ services:
       SPRING_JPA_SHOW_SQL: "true"
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
+      SPRING_KAFKA_PRODUCER_KEY_SERIALIZER: org.apache.kafka.common.serialization.StringSerializer
+      SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER: org.springframework.kafka.support.serializer.JsonSerializer
+
+      SPRING_KAFKA_CONSUMER_GROUP_ID: group-1
+      SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET: earliest
+      SPRING_KAFKA_CONSUMER_ENABLE_AUTO_COMMIT: "false"
+      SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER: org.apache.kafka.common.serialization.StringDeserializer
+      SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER: org.springframework.kafka.support.serializer.JsonDeserializer
+
+      SPRING_KAFKA_CONSUMER_PROPERTIES_SPRING_JSON_TRUSTED_PACKAGES: "*"
+
       SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: "true"
 
       MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "*"
