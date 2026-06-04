@@ -64,6 +64,12 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
 
 
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"
+      - "4317:4317"
+
   my-kafka-service:
     build: .
     container_name: messaging-kafka
@@ -72,11 +78,23 @@ services:
         condition: service_healthy
       postgres:
         condition: service_healthy
+    volumes:
+      - ./otel/opentelemetry-javaagent.jar:/otel/opentelemetry-javaagent.jar
 
     ports:
       - "8080:8080"
 
     environment:
+      JAVA_TOOL_OPTIONS: >
+        -javaagent:/otel/opentelemetry-javaagent.jar
+      OTEL_SERVICE_NAME: kafka-service
+
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_METRICS_EXPORTER: none
+
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/vaudoise
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: lambda
