@@ -1,0 +1,9 @@
+--DROP TABLE IF EXISTS order_event;
+--
+--CREATE TABLE order_event (
+--    order_id BIGSERIAL PRIMARY KEY,
+--    product VARCHAR(255),
+--    quantity NUMERIC(10,0),
+--    email VARCHAR(255)
+--);
+
